@@ -17,6 +17,20 @@ router.get('/', function(req, res, next){
   });
 });
 
+// user manage reservations page
+router.get('/:username/reservations', function(req, res, next){
+  var username = req.params.username;
+
+  User.findOne({username: username}, function(err, user){
+    if(err){
+      res.send(err);
+    }
+    else{
+      res.json({user: user});
+    }
+  });
+});
+
 // user show page
 router.get('/:username', function(req, res, next){
   var username = req.params.username;

@@ -11,6 +11,12 @@ angular.module('app.routes', ['ngRoute'])
     controllerAs: 'homeCtrl'
   })
 
+  .when('/users/:username/reservations', {
+    templateUrl: 'partials/users/reservations.jade',
+    controller: 'userManageController',
+    controllerAs: 'userCtrl'
+  })
+
   .when('/users', {
     templateUrl: 'partials/users/index.jade',
     controller: 'userIndexController',

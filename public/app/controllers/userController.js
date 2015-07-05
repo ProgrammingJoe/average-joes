@@ -9,6 +9,15 @@ userControllers.controller('userIndexController', function($http, User) {
   });
 });
 
+userControllers.controller('userManageController', function($http, User) {
+  var vm = this;
+
+  User.all()
+  .success(function(data, status, headers, config){
+    vm.users = data.users;
+  });
+});
+
 userControllers.controller('userShowController', function($http, $routeParams, User) {
   var vm = this;
   var username = $routeParams.username;

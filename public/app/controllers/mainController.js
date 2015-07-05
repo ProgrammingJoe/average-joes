@@ -5,6 +5,7 @@ angular.module('mainController', [])
   CurrentUser.update();
   vm.currentUser = '';
   vm.currentUserUrl = '';
+  vm.currentMngUrl = '';
 
   // watch to see if the current user changes
   // and change variables accordingly
