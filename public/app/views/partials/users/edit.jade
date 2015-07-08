@@ -7,6 +7,8 @@ div.text-center
       input(type="text" required placeholder="Username" ng-model="userCtrl.updatedUser.username").form-control
     button(type="submit").btn.btn-default.submit-button.
       Submit
+    a(ng-href="{{userCtrl.userPwdUrl}}" role="button").btn.btn-default.
++     Change Password
 
   div(ng-model="userCtrl.success")
     {{userCtrl.success}}
