@@ -27,12 +27,16 @@ userControllers.controller('userNewController', function($http, $location ,User)
   vm.user = {
     username: "",
     password: "",
+    password2: "",
     firstname: "",
     lastname: "",
     email: ""
   };
 
   vm.submit = function(){
+    if(vm.user.password != vm.user.password2){
+      vm.success = "Your passwords do not match";
+    }
     User.create(vm.user)
     .then(function(data){
       if(data.data.success){
