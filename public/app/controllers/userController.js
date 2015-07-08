@@ -13,6 +13,7 @@ userControllers.controller('userShowController', function($http, $routeParams, U
   var vm = this;
   var username = $routeParams.username;
   vm.userEditUrl = "/users/" + username + "/edit"
+  vm.userPwdUrl = "/users/" + username + "/changepassword"
 
   User.get(username)
   .success(function(data, status, headers, config){
@@ -72,6 +73,38 @@ userControllers.controller('userEditController', function($http, User, $routePar
     })
     .error(function(data, status, headers, config){
       vm.success = "Unable to update user."
+    });
+  };
+});
+
+userControllers.controller('userPwdController', function($http, User, $routeParams, $location) {
+  var vm = this;
+  vm.success = "";
+
+  var originalUsername = $routeParams.username;
+
+  User.get(originalUsername)
+  .success(function(data, status, headers, config){
+    vm.originalUser = data.user;
+  })
+  .error(function(data, status, headers, config){
+    $location.path("/"); // redirect if the user cannot be found
+  });
+
+  vm.passinfo = {
+    origpass = "",
+    newpass = "",
+    confpass = "",
+  };
+
+  vm.submit = function(){
+    User.updatepass(vm.originalUser.username, vm.passinfo)
+    .success(function(data, status, headers, config){
+      vm.success = "Password updated successfully."
+      $location.path("/users/" + vm.originalUser.username);
+    })
+    .error(function(data, status, headers, config){
+      vm.success = "Unable to update password."
     });
   };
 });
