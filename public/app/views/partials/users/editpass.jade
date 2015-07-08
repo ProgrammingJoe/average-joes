@@ -1,0 +1,16 @@
+div.page-header.text-center
+  h3 Editing password for {{userCtrl.originalUser.username}}
+
+div.text-center
+  form(ng-submit="userCtrl.submit()").centred-form
+    div.form-group
+      input(type="password" required placeholder="Enter Current Password" ng-model="userCtrl.passinfo.origpass").form-control
+    div.form-group
+      input(type="password" required placeholder="Enter New Password" ng-model="userCtrl.passinfo.newpass").form-control
+    div.form-group
+      input(type="password" required placeholder="Confirm New Password" ng-model="userCtrl.passinfo.confpass").form-control
+    button(type="submit").btn.btn-default.submit-button.
+      Submit
+
+  div(ng-model="userCtrl.success")
+    {{userCtrl.success}}
