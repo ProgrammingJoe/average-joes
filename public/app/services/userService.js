@@ -18,6 +18,10 @@ angular.module('userService', [])
     return $http.post('/api/users/' + originalUsername, updatedUser);
   };
 
+  factory.updatepass = function(originalUsername, passinfo) {
+    return $http.post('/api/users/' + originalUsername, passinfo);
+  };
+
   factory.delete = function(username) {
     return $http.delete('/api/users/' + username);
   };
