@@ -29,6 +29,12 @@ angular.module('app.routes', ['ngRoute'])
     controllerAs: 'userCtrl'
   })
 
+  .when('/users/:username/changepassword', {
+    templateUrl: 'partials/users/editpass.jade',
+    controller: 'userPwdController',
+    controllerAs: 'userCtrl'
+  })
+
   .when('/new_user', {
     templateUrl: 'partials/users/new.jade',
     controller: 'userNewController',
