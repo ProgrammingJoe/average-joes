@@ -12,8 +12,15 @@ div.text-center
       input(type="text" placeholder="{{userCtrl.originalUser.lastname}}" ng-model="userCtrl.updatedUser.lastname" maxlength="30").form-control
     div.form-group
       input(type="email" placeholder="{{userCtrl.originalUser.email}}" ng-model="userCtrl.updatedUser.email" maxlength="30").form-control
-    button(type="submit").btn.btn-default.submit-button.
-      Submit
+    div.page-header.text-center
+      h4 Change Password
+      p.flat-para Fields must match for a new password to be created
+      div.form-group
+        input(type="password" placeholder="Enter your new password" ng-model="userCtrl.updatedUser.newpass" maxlength="30").form-control
+      div.form-group
+        input(type="password" placeholder="Confirm your new password" ng-model="userCtrl.updatedUser.confpass" maxlength="30").form-control
+      button(type="submit").btn.btn-default.submit-button.
+        Submit
 
   div(ng-model="userCtrl.success")
     {{userCtrl.success}}
