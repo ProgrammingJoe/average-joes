@@ -79,7 +79,7 @@ router.delete('/:username', function(req, res, next){
 // Update the user
 router.post('/:username', function(req, res, next){
   var username = req.params.username;
-  
+
   // permissions checking can go here
 
   User.findOne({username: username}, function(err, user){
