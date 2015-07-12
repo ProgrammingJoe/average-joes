@@ -104,19 +104,24 @@ router.post('/:username', function(req, res, next){
         if(req.body.email){
           user.email = req.body.email;
         }
-        if(req.body.newpass && req.body.newpass == req.body.confpass){
-          user.setPassword(req.body.newpass, function(error){
-            if(!error){
-              user.save(function(error){
-                if(error){
-                  res.send(err)
-                }
-              });
-            }
-            else{
-              res.send(err)
-            }
-          });
+        if(req.body.newpass){
+          if(req.body.newpass == req.body.confpass){
+            user.setPassword(req.body.newpass, function(error){
+              if(!error){
+                user.save(function(error){
+                  if(error){
+                    res.send(err)
+                  }
+                });
+              }
+              else{
+                res.send(err)
+              }
+            });
+          }
+          else{
+            res.send(err)
+          }
         }
         user.save(function(err){
           if(err){
