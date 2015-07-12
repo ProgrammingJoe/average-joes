@@ -75,7 +75,7 @@ userControllers.controller('userEditController', function($http, User, $routePar
       $location.path("/users/" + data.updatedUser.username);
     })
     .error(function(data, status, headers, config){
-      vm.success = "Unable to update user."
+      vm.success = "Unable to update user. Check your inputs again please."
     });
   };
 });
