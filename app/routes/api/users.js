@@ -79,6 +79,7 @@ router.delete('/:username', function(req, res, next){
 // Update the user
 router.post('/:username', function(req, res, next){
   var username = req.params.username;
+  var password = req.params.password;
 
   // permissions checking can go here
 
@@ -103,6 +104,20 @@ router.post('/:username', function(req, res, next){
         }
         if(req.body.email){
           user.email = req.body.email;
+        }
+        if(req.body.newpass && req.body.newpass == req.body.confpass){
+          user.setPassword(req.body.newpass, function(error){
+            if(!error){
+              user.save(function(error){
+                if(error){
+                  console.log(error)
+                }
+              });
+            }
+            else{
+              console.log(error)
+            }
+          });
         }
         user.save(function(err){
           if(err){
