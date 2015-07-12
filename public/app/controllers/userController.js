@@ -63,7 +63,9 @@ userControllers.controller('userEditController', function($http, User, $routePar
     username: "",
     firstname: "",
     lastname: "",
-    email: ""
+    email: "",
+    newpass: "",
+    confpass: ""
   };
 
   vm.submit = function(){
