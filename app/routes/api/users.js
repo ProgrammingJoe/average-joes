@@ -109,12 +109,12 @@ router.post('/:username', function(req, res, next){
             if(!error){
               user.save(function(error){
                 if(error){
-                  console.log(error)
+                  res.send(err)
                 }
               });
             }
             else{
-              console.log(error)
+              res.send(err)
             }
           });
         }
